@@ -3,10 +3,11 @@
 var express = require('express')
 var add = require('./add');
 
-var result = add(5,2);
+
 var app = express()
 
-app.get('/', function (req, res) {
+app.get('/:a/:b', function (req, res) {
+    var result = add(req.params.a,req.params.b)
     res.send('result is'+" " + result);
 })
 
